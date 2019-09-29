@@ -13,7 +13,6 @@ namespace ZbW.Testing.Dms.Client.ViewModels
         private string _benutzer;
         private UserControl _content;
 
-
         public MainViewModel(string benutzername)
         {
             Benutzer = benutzername;
@@ -24,19 +23,16 @@ namespace ZbW.Testing.Dms.Client.ViewModels
         public string Benutzer
         {
             get => _benutzer;
-
             set => SetProperty(ref _benutzer, value);
         }
 
         public UserControl Content
         {
             get => _content;
-
             set => SetProperty(ref _content, value);
         }
 
         public DelegateCommand CmdNavigateToSearch { get; }
-
         public DelegateCommand CmdNavigateToDocumentDetail { get; }
 
         private void OnCmdNavigateToSearch()

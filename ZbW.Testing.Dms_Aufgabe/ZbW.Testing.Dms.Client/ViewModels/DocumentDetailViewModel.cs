@@ -14,8 +14,6 @@ using static System.String;
 
 namespace ZbW.Testing.Dms.Client.ViewModels
 {
-
-
     internal class DocumentDetailViewModel : BindableBase
     {
         private readonly Action _navigateBack;

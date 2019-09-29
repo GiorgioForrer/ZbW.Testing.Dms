@@ -2,7 +2,7 @@
 
 namespace ZbW.Testing.Dms.Client.Model
 {
-    internal class MetadataItem
+    public class MetadataItem
     {
         public string Description { get; set; }
         public string UserName { get; set; }
@@ -12,7 +12,7 @@ namespace ZbW.Testing.Dms.Client.Model
         public bool IsRemoveFileEnabled { get; set; }
         public string Type { get; set; }
 
-        public MetadataItem() { }
+        
 
         public MetadataItem(DateTime valueDate, string type)
         {
