@@ -125,10 +125,12 @@ namespace ZbW.Testing.Dms.Client.ViewModels
             {
                 UserName = Benutzer,
                 Description = Bezeichnung,
+                DateOfCreation = DateTime.Now,
+                ValueDate = (DateTime)ValutaDatum,
                 FilePath = _filePath,
                 IsRemoveFileEnabled = IsRemoveFileEnabled,
-                ValueDate = DateTime.Now
-            };
+
+        };
 
             return metadataItem;
         }
