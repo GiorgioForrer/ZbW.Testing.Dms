@@ -157,5 +157,15 @@ namespace ZbW.Testing.Dms.UnitTests.ModelTests
             Assert.That(metadataItem.Type, Is.EqualTo(TestType));
             Assert.That(metadataItem.ValueDate, Is.EqualTo(_testDateTime));
         }
+
+        [Test]
+        public void MetadataItem_EmptyConstructor_GetObject()
+        {
+            //Arrange and Act
+            var metadatItem = new MetadataItem();
+
+            //Assert
+            Assert.IsInstanceOf<MetadataItem>(metadatItem);
+        }
     }
 }
