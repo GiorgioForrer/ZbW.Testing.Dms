@@ -1,5 +1,7 @@
 ﻿using NUnit.Framework;
 using ZbW.Testing.Dms.Client.ViewModels;
+using ZbW.Testing.Dms.Client;
+
 
 namespace ZbW.Testing.Dms.UnitTests.ViewModelsTests
 {
@@ -10,8 +12,8 @@ namespace ZbW.Testing.Dms.UnitTests.ViewModelsTests
         public void SearchViewModel_GetSet_Suchwort()
         {
             // Arrange
-            var searchViewModel = new SearchViewModel { Suchbegriff = "test" };
-
+            var searchViewModel = new SearchViewModel{ Suchbegriff = "test" };
+            
             // Act
             var suchbegriff = searchViewModel.Suchbegriff;
 
@@ -29,7 +31,7 @@ namespace ZbW.Testing.Dms.UnitTests.ViewModelsTests
             searchViewMode.CmdReset.Execute();
 
             // Asert
-            Assert.That(searchViewMode.Suchbegriff, Is.EqualTo(null));
+            Assert.That(searchViewMode.Suchbegriff, Is.EqualTo(""));
             Assert.That(searchViewMode.SelectedTypItem, Is.Null);
         }
     }
