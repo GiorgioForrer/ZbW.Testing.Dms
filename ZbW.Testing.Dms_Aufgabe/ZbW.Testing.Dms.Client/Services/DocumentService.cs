@@ -24,7 +24,7 @@ namespace ZbW.Testing.Dms.Client.Services
 
         public DocumentService()
         {
-            _targetPath = @"C:\Temp";
+            _targetPath = System.Configuration.ConfigurationManager.AppSettings["RepositoryDir"];
             _fileService = new FileService();
             _xmlService = new XmlService();
         }
