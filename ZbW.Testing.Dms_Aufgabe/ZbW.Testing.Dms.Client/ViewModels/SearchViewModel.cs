@@ -4,6 +4,8 @@ using Prism.Mvvm;
 using ZbW.Testing.Dms.Client.Model;
 using ZbW.Testing.Dms.Client.Repositories;
 using System.Runtime.CompilerServices;
+using ZbW.Testing.Dms.Client.Services;
+
 
 [assembly:InternalsVisibleTo("Zbw.Testing.Dms.UnitTests")]
 
@@ -17,6 +19,7 @@ namespace ZbW.Testing.Dms.Client.ViewModels
         private string _selectedTypItem;
         private string _suchbegriff;
         private List<string> _typItems;
+        private readonly DocumentService _documentService;
         
 
         public SearchViewModel()
@@ -25,6 +28,8 @@ namespace ZbW.Testing.Dms.Client.ViewModels
             CmdSuchen = new DelegateCommand(OnCmdSuchen);
             CmdReset = new DelegateCommand(OnCmdReset);
             CmdOeffnen = new DelegateCommand(OnCmdOeffnen, OnCanCmdOeffnen);
+            _documentService = new DocumentService();
+            FilteredMetadataItems = _documentService.GetAllMetadataItems();
         }
 
         public DelegateCommand CmdOeffnen { get; }
@@ -34,28 +39,24 @@ namespace ZbW.Testing.Dms.Client.ViewModels
         public string Suchbegriff
         {
             get => _suchbegriff;
-
             set => SetProperty(ref _suchbegriff, value);
         }
 
         public List<string> TypItems
         {
             get => _typItems;
-
             set => SetProperty(ref _typItems, value);
         }
 
         public string SelectedTypItem
         {
             get => _selectedTypItem;
-
             set => SetProperty(ref _selectedTypItem, value);
         }
 
         public List<MetadataItem> FilteredMetadataItems
         {
             get => _filteredMetadataItems;
-
             set => SetProperty(ref _filteredMetadataItems, value);
         }
 
@@ -79,17 +80,19 @@ namespace ZbW.Testing.Dms.Client.ViewModels
 
         private void OnCmdOeffnen()
         {
-            // TODO: Add your Code here
+            _documentService.OpenFile(SelectedMetadataItem);
         }
 
         private void OnCmdSuchen()
         {
-            // TODO: Add your Code here
+            FilteredMetadataItems = _documentService.FilterMetadataItems(SelectedTypItem, Suchbegriff);
         }
 
         private void OnCmdReset()
         {
-            // TODO: Add your Code here
+            FilteredMetadataItems = _documentService.MetadataItems;
+            Suchbegriff = string.Empty;
+            SelectedTypItem = null;
         }
     }
 }
