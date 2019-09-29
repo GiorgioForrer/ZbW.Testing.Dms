@@ -41,5 +41,7 @@ namespace ZbW.Testing.Dms.UnitTests.ViewModelsTests
             //Assert
             Assert.That(ableToLogin, Is.True);
         }
+
+
     }
 }
