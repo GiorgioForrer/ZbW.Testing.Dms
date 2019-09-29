@@ -1,11 +1,14 @@
-﻿namespace ZbW.Testing.Dms.Client.ViewModels
+﻿using System.Runtime.CompilerServices;
+using System.Windows;
+using Prism.Commands;
+using Prism.Mvvm;
+using ZbW.Testing.Dms.Client.Views;
+
+[assembly: InternalsVisibleTo("ZbW.Testing.Dms.UnitTests")]
+
+
+namespace ZbW.Testing.Dms.Client.ViewModels
 {
-    using System.Windows;
-
-    using Prism.Commands;
-    using Prism.Mvvm;
-
-    using ZbW.Testing.Dms.Client.Views;
 
     internal class LoginViewModel : BindableBase
     {
@@ -26,10 +29,7 @@
 
         public string Benutzername
         {
-            get
-            {
-                return _benutzername;
-            }
+            get => _benutzername;
 
             set
             {
